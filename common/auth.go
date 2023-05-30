@@ -111,3 +111,5 @@ func Authorize(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		)
 	}
 }
+
+// TODO: fix the JWT generate and verify library
