@@ -20,14 +20,15 @@ var (
 func initKeys() {
 	var err error
 
-	signKey, err = ioutil.ReadFile(privKeyPath)
+	_, err = ioutil.ReadFile(privKeyPath)
 	if err != nil {
 		log.Fatalf("[initKeys]: %s\n", err)
 	}
 
-	verifyKey, err = ioutil.ReadFile(pubKeyPath)
+	_, err = ioutil.ReadFile(pubKeyPath)
 	if err != nil {
 		log.Fatalf("[initKeys]: %s\n", err)
+		panic(err)
 	}
 
 }

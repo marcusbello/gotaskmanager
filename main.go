@@ -1,7 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"net/http"
 
+	"github.com/marcusbello/gotaskmanager/common"
+	"github.com/marcusbello/gotaskmanager/routers"
+)
+
+// Entry point of the program
 func main() {
-	fmt.Println("Hello World!")
+	// Call startup
+	common.StartUp()
+	// Get the mux router object
+	router := routers.InitRoutes()
+	// Create a negroni instance
+	n := negroni.Classic()
+	n.UseHandler(router)
+	server := &http.Server{
+		Addr:    common.AppConfig.Server,
+		Handler: n,
+	}
+	log.Println("Listening.....")
+
 }
