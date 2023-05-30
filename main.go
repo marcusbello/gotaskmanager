@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/codegangsta/negroni"
 	"github.com/marcusbello/gotaskmanager/common"
 	"github.com/marcusbello/gotaskmanager/routers"
 )
@@ -23,4 +24,5 @@ func main() {
 	}
 	log.Println("Listening.....")
 
+	server.ListenAndServe()
 }
