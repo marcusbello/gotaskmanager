@@ -1,9 +1,0 @@
-{
-    "Server"      : "0.0.0.0:8080",
-    "MongoDBHost" : "bk2hdlrh5bcwn7cryoei-mongodb.services.clever-cloud.com",
-    "MongoDBUser"	: "ucruhf9pfoz9r2xuznuz",
-    "MongoDBPwd"	: "sFju3jXvyGP7ZlJXXSw",
-    "Database"    : "bk2hdlrh5bcwn7cryoei",
-    "MongoURL"    : "mongodb://ucruhf9pfoz9r2xuznuz:sFju3jXvyGP7ZlJXXSw@bk2hdlrh5bcwn7cryoei-mongodb.services.clever-cloud.com:2392/bk2hdlrh5bcwn7cryoei",
-    "LogLevel"    : 4
-  }
