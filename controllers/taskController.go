@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
+	httpcontext "github.com/gorilla/context"
+
 	"github.com/gorilla/mux"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -30,6 +32,9 @@ func CreateTask(w http.ResponseWriter, r *http.Request) {
 	task := &dataResource.Data
 	context := NewContext()
 	defer context.Close()
+	if val, ok := httpcontext.GetOk(r, "user"); ok {
+		val = val.(string)
+	}
 	col := context.DbCollection("tasks")
 	repo := &data.TaskRepository{C: col}
 	// Insert a task document
