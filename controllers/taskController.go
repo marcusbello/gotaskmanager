@@ -32,9 +32,11 @@ func CreateTask(w http.ResponseWriter, r *http.Request) {
 	task := &dataResource.Data
 	context := NewContext()
 	defer context.Close()
+	var currentUser string
 	if val, ok := httpcontext.GetOk(r, "user"); ok {
-		task.CreatedBy = val.(string)
+		currentUser = val.(string)
 	}
+	task.CreatedBy = currentUser
 	col := context.DbCollection("tasks")
 	repo := &data.TaskRepository{C: col}
 	// Insert a task document
