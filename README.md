@@ -10,9 +10,13 @@ Task manager built with Go
 ### Endpoints
 | URL | HTTP Verb | functionality |
 | -------- | --------- | ------ |
-| '/users' | GET | returns user |
-| '/users/login' | POST | user login with email and password |
+| '/user/login' | POST | user login with email and password |
 | '/user/register' | POST | user register |
+| '/task/{id}' | GET | user register |
+| '/task' | POST | user create tasks |
+| '/task/{id}' | PUT | user update tasks |
+| '/task{id}' | DELETE | user delete tasks |
+| '/tasks' | GET | fetch all tasks |
 
 
 ### Tools
