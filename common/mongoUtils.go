@@ -72,15 +72,15 @@ func addIndexes() {
 
 	err = userCol.EnsureIndex(userIndex)
 	if err != nil {
-		log.Fatalf("[adduserIndex]: %s\n")
+		log.Fatalf("[adduserIndex]: %s\n", err)
 	}
 	err = taskCol.EnsureIndex(taskIndex)
 	if err != nil {
-		log.Fatalf("[addtaskIndex]: %s\n")
+		log.Fatalf("[addtaskIndex]: %s\n", err)
 	}
 	err = noteCol.EnsureIndex(noteIndex)
 	if err != nil {
-		log.Fatalf("[addnoteIndex]: %s\n")
+		log.Fatalf("[addnoteIndex]: %s\n", err)
 	}
 
 }

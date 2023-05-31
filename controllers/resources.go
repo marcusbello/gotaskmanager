@@ -24,7 +24,31 @@ type (
 	}
 	// Model for authorized user with access token
 	AuthUserModel struct {
-		User  string `json:"user"`
-		Token string `json:"token"`
+		User  models.User `json:"user"`
+		Token string      `json:"token"`
+	}
+	// For Post/Put - /tasks
+	// For Get -/tasks/{id}
+	TaskResource struct {
+		Data models.Task `json:"data"`
+	}
+	// For Post/Put - /tasks
+	// For Get -/tasks
+	TasksResource struct {
+		Data []models.Task `json:"data"`
+	}
+	// For Post/Put - /notes
+	NoteResource struct {
+		Data NoteModel `json:"data"`
+	}
+	// For Get - /notes
+	// For /notes/tasks/id
+	NotesResource struct {
+		Data []models.TaskNote `json:"data"`
+	}
+	//Model for a TaskNote
+	NoteModel struct {
+		TaskId      string `json:"taskid"`
+		Description string `json:"description"`
 	}
 )

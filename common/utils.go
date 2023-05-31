@@ -9,6 +9,7 @@ import (
 
 type configuration struct {
 	Server, MongoDBHost, DBUser, DBPwd, Database string
+	LogLevel                                     int
 }
 
 var AppConfig configuration

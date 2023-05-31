@@ -29,11 +29,11 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	defer context.Close()
 	c := context.DbCollection("user")
 	// insert document
-	repo := &data.UserRepository{c}
+	repo := &data.UserRepository{C: c}
 	repo.CreateUser(user)
 	//  Clean-up hashed password to eliminate it from response
 	user.HashPassword = nil
-	if l, err := json.Marshal(UserResource{Data: *user}); err != nil {
+	if j, err := json.Marshal(UserResource{Data: *user}); err != nil {
 		common.DisplayAppError(
 			w,
 			err,
@@ -69,10 +69,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		Email:    loginModel.Email,
 		Password: loginModel.Password,
 	}
-	context = NewContext()
+	context := NewContext()
 	defer context.Close()
 	c := context.DbCollection("users")
-	repo := &data.UserRepository{c}
+	repo := &data.UserRepository{C: c}
 	// Authenticate te login user
 	if user, err := repo.Login(loginUser); err != nil {
 		common.DisplayAppError(

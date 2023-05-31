@@ -1,12 +1,15 @@
 package common
 
-func StartUp() {
-	// initialize config
+// init bootstrapps the application
+func init() {
+	// Initialize AppConfig variable
 	initConfig()
-	// Initialize private/public keys for JWT autentication
+	// Initialize private/public keys for JWT authentication
 	initKeys()
-	// Start a mongoDB Session
+	// Initialize Logger objects with Log Level
+	setLogLevel(Level(AppConfig.LogLevel))
+	// Start a MongoDB session
 	createDbSession()
-	// Add indexes into mongoDB
+	// Add indexes into MongoDB
 	addIndexes()
 }

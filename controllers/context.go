@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"google.golang.org/genproto/googleapis/cloud/oslogin/common"
+	"github.com/marcusbello/gotaskmanager/common"
 	"gopkg.in/mgo.v2"
 )
 
