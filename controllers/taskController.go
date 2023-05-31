@@ -33,7 +33,7 @@ func CreateTask(w http.ResponseWriter, r *http.Request) {
 	context := NewContext()
 	defer context.Close()
 	if val, ok := httpcontext.GetOk(r, "user"); ok {
-		val = val.(string)
+		task.CreatedBy = val.(string)
 	}
 	col := context.DbCollection("tasks")
 	repo := &data.TaskRepository{C: col}
